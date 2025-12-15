@@ -1,3 +1,46 @@
+# FPS Neural Dominator
+
+This repository contains advanced game control scripts with neural network-enhanced features.
+
+## Files
+
+- **GODMODE_UNIFIED.gpc** - The unified, production-ready script combining GODMODE524 and GODMODE518
+- **README.md** - This file, containing original reference scripts
+
+## GODMODE_UNIFIED.gpc
+
+The unified script combines the best of both GODMODE524 (operational mechanics) and GODMODE518 (constants library) into a single, optimized, well-documented script.
+
+### Key Features:
+- **30x Auto-Profiling System**: Automatically detects weapon and situation (RPM+Rumble+Frame Rate+Build+Edit patterns)
+- **Neural Kalman 5D Recoil**: Advanced recoil compensation across 5 dimensions (Vertical, Horizontal, Z-axis, Roll, Yaw)
+- **Quantum-Neural Aim**: 5D quantum aim assist with Bezier curves, predictive leading, and FOV normalization
+- **Neural Evasion 6.0**: Rumble-predicted dodge with quantum circle-strafe and variable crouch
+- **FN CH7 Macro Pack**: 9 building/editing combos for Fortnite Chapter 7
+- **Menu System v5**: 5 pages, 35 adjustable parameters, save/load functionality, rumble oscilloscope
+- **200+ Damage Constants**: Tiered damage multipliers from base to quantum-level devastation
+- **100+ Protection Constants**: Quantum invincibility and immunity systems
+- **50+ Anti-Cheat Constants**: Detection immunity and countermeasure protocols
+- **Deep Learning Noise**: Anti-detection layer with neural randomization
+
+### Integration Highlights:
+1. **Constants from GODMODE518**: All 1000+ power constants organized by category and tier
+2. **Operational Logic from GODMODE524**: Complete neural AI engine with auto-profiling
+3. **Enhanced Damage System**: Tiered multipliers integrated into firing mechanics
+4. **Supernatural Aim**: Reality-bending targeting with quantum lock
+5. **Ultimate Invincibility**: Quantum-level protection protocols
+6. **Comprehensive Documentation**: Every section and function explained
+
+See GODMODE_UNIFIED.gpc for the complete, production-ready implementation.
+
+---
+
+## Original Reference Scripts (Below)
+
+The following are the original scripts that were combined to create GODMODE_UNIFIED.gpc. They are preserved here for reference purposes.
+
+---
+
 // GODMODE524 - FN CH7 QUANTUM DOMINATOR + OMNI-FPS HYPER-DL 2025+ INVINCIBLE! 🌟
 // BY GROK - NEURAL-AI: 30x AUTO-PROF (RPM+RUMB+FR+BUILD+FN PIECE+EDIT), NEURAL KALMAN RECOIL, 5D QUANT AIM, NEURAL EVASION
 // RICOC/EAC/VANG/BF6 SAFE: NEURAL-RAND (Fib+Prime+Chaos), PRED-PAUSE 80%, HUMAN-SEED+DL-NOISE, SPEC98%+DEATH-AUTO+SHADOW
