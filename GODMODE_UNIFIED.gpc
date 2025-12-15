@@ -38,7 +38,6 @@ define ARMOR_PIERCING = 175;
 define EXPLOSIVE_ROUNDS = 180;
 
 // === DAMAGE MULTIPLIERS - TIER 2: ULTIMATE DAMAGE (4700-6500) ===
-define MAXIMUM_DAMAGE_OUTPUT = 9999;
 define DIVINE_JUDGMENT_POWER = 5000;
 define CELESTIAL_WRATH_DAMAGE = 4800;
 define COSMIC_ANNIHILATION = 5200;
@@ -138,6 +137,7 @@ define INFINITE_APOCALYPSE = 9940;
 define BOUNDLESS_CHAOS = 9820;
 
 // === DAMAGE MULTIPLIERS - TIER 6: MAXIMUM DEVASTATION (9915-9999) ===
+define MAXIMUM_DAMAGE_OUTPUT = 9999;
 define ETERNAL_SUFFERING = 9999;
 define VOID_EMPEROR = 9990;
 define COSMIC_TYRANT = 9985;
@@ -505,27 +505,31 @@ function neural_kal(old, meas, gain, noise) {
 // Produces pseudo-random values for anti-cheat evasion
 function neural_rand(seed) { 
     chaos_seq = (chaos_seq*chaos_seq + fib_seq) % CHAOS_SEED; 
-    fib_seq = (fib_seq*1 + fib_seq) % FIB_PRIME;
+    fib_seq = (fib_seq * 2) % FIB_PRIME;  // Simplified Fibonacci step
     return ((chaos_seq * seed % FIB_PRIME) % 29) - 14; 
 }
 
-// Cubic Bezier Curve with Tension
-// Used for smooth aim and recoil patterns
+// Cubic Bezier-like Smoothing Curve with Tension
+// Provides smooth acceleration for aim and recoil patterns
+// Note: Simplified for performance (cubic polynomial with tension adjustment)
 function bez_cub(t, tens) { 
-    t=t*t*t + 3*t*t*(1-t) + 3*t*(1-t)*(1-t) + (1-t)*(1-t)*(1-t); 
-    return t*(1 + tens*0.3); 
+    float cubic = t*t*t;  // Cubic term for acceleration
+    float smooth = 3*t*t*(1-t);  // Smoothing term
+    return (cubic + smooth) * (1 + tens*0.3); 
 }
 
 // Deep Learning Prediction with Kalman
 // Predicts future values based on historical data
 function dl_pred(hist, n, a, nse) {
+    if(n < 4) return 0;  // Safety check for minimum history
     int slope = pred_kal(hist, n, a/100.0);
-    return neural_kal(hist[n/3], slope * 0.45, a/100.0, nse);
+    int index = (n / 3 > 0) ? n / 3 : 0;  // Bounds-safe index
+    return neural_kal(hist[index], slope * 0.45, a/100.0, nse);
 }
 
 // Simple prediction using Kalman-like approach
 function pred_kal(hist, n, alpha) {
-    if(n < 2) return 0;
+    if(n < 2) return 0;  // Bounds check
     return (hist[n-1] - hist[n-2]) * alpha;
 }
 
