@@ -1,0 +1,387 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --bg-color: #0f0f23;
+    --card-bg: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #a8a8b3;
+    --border-color: #2d2d44;
+    --success-color: #4ade80;
+    --danger-color: #f87171;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-color) 0%, #1a1a2e 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+
+/* Primary Clock Styles */
+.primary-clock {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #252541 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+.clock-display {
+    text-align: center;
+}
+
+.time {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    font-variant-numeric: tabular-nums;
+}
+
+.date {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.timezone-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+/* Timezone Manager Styles */
+.timezone-manager {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.timezone-manager h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.add-timezone-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timezone-select {
+    flex: 1;
+    min-width: 250px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    background: var(--bg-color);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.timezone-select:hover {
+    border-color: var(--primary-color);
+}
+
+.timezone-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-add {
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow);
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.4);
+}
+
+.btn-add:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* World Clocks Section */
+.world-clocks {
+    margin-bottom: 40px;
+}
+
+.world-clocks h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+.clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Clock Card Styles */
+.clock-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #252541 100%);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.clock-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+}
+
+.clock-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.clock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.clock-location {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.btn-remove {
+    background: transparent;
+    border: 2px solid var(--danger-color);
+    color: var(--danger-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.btn-remove:hover {
+    background: var(--danger-color);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.clock-time {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+}
+
+.clock-date {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.clock-timezone {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    opacity: 0.3;
+    stroke-width: 1.5;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.empty-hint {
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .time {
+        font-size: 3.5rem;
+    }
+
+    .clock-time {
+        font-size: 2rem;
+    }
+
+    .add-timezone-form {
+        flex-direction: column;
+    }
+
+    .timezone-select {
+        min-width: 100%;
+    }
+
+    .btn-add {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .clocks-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .time {
+        font-size: 2.5rem;
+    }
+
+    .clock-time {
+        font-size: 1.8rem;
+    }
+
+    .primary-clock {
+        padding: 25px;
+    }
+
+    .timezone-manager {
+        padding: 20px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.clock-card {
+    animation: fadeIn 0.3s ease;
+}
